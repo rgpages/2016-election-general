@@ -342,7 +342,6 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					//banner : '<%= banner.long %>',
 					style : 'expanded' // Output style. Can be nested, compact, compressed, expanded.
 					
 				},
