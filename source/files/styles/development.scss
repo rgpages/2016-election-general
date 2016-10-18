@@ -1,0 +1,89 @@
+// Helpers:
+@import "partials/variable";
+
+// `:xxx` = pseudo-class & `::xxx` = pseudo-element.
+//
+// @see http://reference.sitepoint.com/css/pseudoclasses
+// @see http://reference.sitepoint.com/css/pseudoelements
+
+.swatches {
+	
+	color: $raven;
+	max-width: 650px;
+	margin: 20px auto;
+	//mix-blend-mode: multiply;
+	
+	.swatch {
+		font-size: 14px;
+		line-height: 18px;
+		border: 1px solid rgba($raven, .1);
+		margin: 5px 0;
+		padding: 5px;
+	}
+	
+	.swatch-1 { background: $color1; }
+	.swatch-2 { background: $color2; }
+	.swatch-3 { background: $color3; }
+	.swatch-4 { background: $color4; }
+	
+}
+
+.marker {
+	
+	font-size: 18px;
+	line-height: 20px;
+	font-weight: normal;
+	letter-spacing: .03em;
+	margin: 40px 0;
+	padding: 0;
+	//mix-blend-mode: multiply;
+	
+	a {
+		
+		padding: 15px 20px;
+		background: $gray3;
+		display: inline-block;
+		border: 0;
+		box-shadow: none;
+		
+		&,
+		&:visited { color: $grayd; }
+		.no-touch &:visited:hover,
+		&:focus,
+		.no-touch &:focus:hover,
+		.no-touch &:hover,
+		&:active {
+			color: $milk;
+			background: $raven;
+			box-shadow: none;
+		}
+		
+	}
+	
+}
+
+.fake {
+	
+	height: 500px;
+	background: $graye;
+	border: 1px solid $grayd;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	
+	p {
+		margin: 0;
+		padding: 0;
+		text-transform: uppercase;
+		color: $gray6;
+		letter-spacing: .05em;
+		font-size: 18px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+	
+}

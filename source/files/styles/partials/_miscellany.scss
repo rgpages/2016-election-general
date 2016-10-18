@@ -1,0 +1,65 @@
+.js #disqus { display: none; }
+
+.stories {
+	
+	.story {
+		
+		position: relative;
+		border-width: 1px 0;
+		border-style: solid;
+		border-color: $grayd;
+		margin: 0 0 -1px;
+		padding: 10px 0;
+		
+		&::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		
+		h4 {
+			font-size: 18px;
+			line-height: 20px;
+			margin: 0;
+		}
+		
+		h5 {
+			font-size: 16px;
+			line-height: 18px;
+			color: $raven;
+			margin: 0;
+		}
+		
+		h6 {
+			font-size: 12px;
+			line-height: 14px;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			color: $gray6;
+			margin: 0 0 5px;
+		}
+		
+		h6 + h4,
+		h4 + h5 { margin-top: 5px; }
+		
+		time {
+			font-size: 12px;
+			line-height: 12px;
+			letter-spacing: .1em;
+			color: $gray6;
+			float: right;
+			margin: 0 0 0 5px;
+		}
+		
+		img {
+			border-radius: 3px;
+			max-width: none;
+			margin: 0 0 5px 5px;
+			float: right;
+		}
+		
+	}
+	
+}
+
+.glow { box-shadow: 0 0 20px $chili; }

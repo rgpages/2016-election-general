@@ -1,0 +1,34 @@
+{
+  "name": "bower",
+  "dependencies": {
+    "fastclick": "~1",
+    "harmonia": "https://github.com/mhulse/jquery-harmonia.git#v1",
+    "imagesloaded": "~3",
+    "iframe-resizer": "~2",
+    "ion": "https://github.com/mhulse/jquery-ion.git#v1",
+    "jquery": "~2",
+    "jquery-smooth-scroll": "~1",
+    "letteringjs": "~0",
+    "moment.twitter": "~0",
+    "normalize-css": "~3",
+    "nutshell": "https://github.com/mhulse/jquery-nutshell.git#v1",
+    "pollster": "https://github.com/mhulse/jquery-pollster.git#v1",
+    "pure": "~0"
+  },
+  "exportsOverride": {
+    "pure": {
+      "": [
+        "grids.css"
+      ]
+    },
+    "imagesloaded": {
+      "": "imagesloaded.pkgd.js"
+    },
+    "jquery": {
+      "": "dist/jquery.js"
+    },
+    "letteringjs": {
+      "": "jquery.lettering.js"
+    }
+  }
+}

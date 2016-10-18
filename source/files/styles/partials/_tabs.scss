@@ -1,0 +1,119 @@
+.nutshell {
+	
+	position: relative;
+	
+	&,
+	li {
+		margin: 0;
+		padding: 0;
+	}
+	
+	li {
+		list-style: none;
+		margin-bottom: 5px;
+	}
+	
+	a {
+		
+		font-size: 18px;
+		line-height: 20px;
+		font-weight: normal;
+		letter-spacing: .08em;
+		color: lighten($color2, 50%);
+		background-color: $color2;
+		padding: 10px;
+		white-space: nowrap;
+		cursor: pointer;
+		cursor: hand;
+		border-radius: 3px;
+		position: relative;
+		z-index: 2;
+		display: block;
+		
+		&
+		&:visited,
+		.no-touch &:visited:hover,
+		&:focus,
+		.no-touch &:focus:hover,
+		.no-touch &:hover,
+		&:active {
+			text-decoration: none;
+			color: lighten($color2, 50%);
+			box-shadow: none;
+		}
+		
+		.js &::before {
+			@include font-awesome;
+			font-size: 14px;
+			content: "\f1db\00a0";
+			position: relative;
+			top: -1px;
+		}
+			
+		.js &.nutshell-selected::before {
+			content: "\f192\00a0";
+		}
+		
+		&.nutshell-selected,
+		.no-touch &:hover,
+		&:focus {
+			background-image: linear-gradient(transparent, rgba($raven, .05) 40%,
+			                  rgba($raven, .10));
+		}
+		
+		&:focus { outline: 0; }
+		
+		&:active {
+			box-shadow: 0 0 0 2px rgba($raven, .15) inset,
+			            0 0 10px rgba($raven, .25) inset;
+		}
+		
+	}
+	
+	@media all and (min-width: 480px) {
+		
+		border-bottom: 5px solid $color2;
+		border-radius: 3px 3px 0 0;
+		
+		*zoom: 1;
+		&::before,
+		&::after {
+			content: " ";
+			display: table;
+		}
+		&::after { clear: both; }
+		
+		li {
+			
+			float: left;
+			display: inline;
+			margin-right: 5px;
+			margin-bottom: -5px;
+			
+			&:last-child { margin-right: 0; }
+			
+		}
+		
+	}
+	
+}
+
+.nutshell-panel {
+	
+	background: rgba($raven, .1);
+	border-radius: 3px;
+	margin-top: -8px; // The `margin` + `border-radius`.
+	padding: 13px 10px 10px;
+	
+	> :last-child { margin-bottom: 0; }
+	
+	.js & { display: none; }
+	
+	@media all and (min-width: 480px) {
+		
+		margin-top: 0;
+		border-radius: 0 0 3px 3px;
+		
+	}
+	
+}

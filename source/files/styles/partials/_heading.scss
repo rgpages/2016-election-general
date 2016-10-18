@@ -1,0 +1,123 @@
+h1, h2, h3, h4, h5, h6 {
+	
+	letter-spacing: .02em;
+	word-spacing: .12em;
+	// For really long words (might consider removing):
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	margin: 25px 0;
+	padding: 0;
+	
+	& + & { margin-top: -20px; }
+	
+	a {
+		
+		&,
+		&:visited { color: $color2; }
+		.no-touch &:visited:hover,
+		&:focus,
+		.no-touch &:focus:hover,
+		.no-touch &:hover,
+		&:active {
+			color: saturate(lighten($color2, 20%), 20%);
+			text-decoration: none;
+		}
+		
+	}
+	
+}
+
+.sh1, .sh2, .sh3, .sh4, .sh5, .sh6 { font-weight: normal; }
+
+h1, .h1, .sh1 {
+	font-size: 26px;
+	line-height: 28px;
+}
+
+h2, .h2, .sh2 {
+	font-size: 24px;
+	line-height: 26px;
+}
+
+h3, .h3, .sh3 {
+	font-size: 22px;
+	line-height: 24px;
+}
+
+h4, .h4, .sh4 {
+	font-size: 20px;
+	line-height: 22px;
+}
+
+h5, .h5, .sh5 {
+	font-size: 18px;
+	line-height: 20px;
+}
+
+h6, .h6, .sh6 {
+	font-size: 16px;
+	line-height: 18px;
+}
+
+h1:empty { display: none; }
+
+header,
+hgroup {
+	
+	> :first-child { margin-top: 0 !important; }
+	> :last-child { margin-bottom: 0 !important; }
+	
+}
+
+//----------------------------------------------------------------------
+// Custom headings:
+//----------------------------------------------------------------------
+
+.mast {
+	
+	@include benton;
+	color: $gray3;
+	margin: 10px 0;
+	padding: 0;
+	//border-bottom: 2px solid $raven;
+	
+	a {
+		
+		&,
+		&:visited,
+		.no-touch &:visited:hover,
+		&:focus,
+		.no-touch &:focus:hover,
+		.no-touch &:hover,
+		&:active { color: $raven; }
+		
+	}
+	
+}
+
+.head {
+	
+	@include benton;
+	font-size: 20px;
+	line-height: 22px;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	color: $gray9;
+	margin: 10px 0 5px;
+	//border-bottom: 1px solid $grayc;
+	margin: 10px 0;
+	padding: 5px 0;
+	
+	a {
+		
+		&,
+		&:visited { color: $gray9; }
+		.no-touch &:visited:hover,
+		&:focus,
+		.no-touch &:focus:hover,
+		.no-touch &:hover,
+		&:active { color: $gray6; }
+		
+	}
+	
+}

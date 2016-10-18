@@ -1,0 +1,85 @@
+/**
+ * Election 2014
+ * Latest news, recent coverage and results starting at 8 p.m.
+ *
+ * @author Micky Hulse
+ * @link http://mky.io
+ * @docs https://github.com/registerguard/election-2014-general
+ * @copyright Copyright (c) 2014 Micky Hulse.
+ * @license Released under the Copyright © The Register-Guard 2014. All rights reserved..
+ * @version 0.1.1
+ * @date 2014/11/13
+ */
+
+
+.swatches {
+  color: #000;
+  max-width: 650px;
+  margin: 20px auto;
+}
+.swatches .swatch {
+  font-size: 14px;
+  line-height: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 5px 0;
+  padding: 5px;
+}
+.swatches .swatch-1 {
+  background: #ca4700;
+}
+.swatches .swatch-2 {
+  background: #0083ca;
+}
+.swatches .swatch-3 {
+  background: #72ca00;
+}
+.swatches .swatch-4 {
+  background: #ca0094;
+}
+
+.marker {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: normal;
+  letter-spacing: .03em;
+  margin: 40px 0;
+  padding: 0;
+}
+.marker a {
+  padding: 15px 20px;
+  background: #333;
+  display: inline-block;
+  border: 0;
+  box-shadow: none;
+}
+.marker a, .marker a:visited {
+  color: #ddd;
+}
+.no-touch .marker a:visited:hover, .marker a:focus, .no-touch .marker a:focus:hover, .no-touch .marker a:hover, .marker a:active {
+  color: #fff;
+  background: #000;
+  box-shadow: none;
+}
+
+.fake {
+  height: 500px;
+  background: #eee;
+  border: 1px solid #ddd;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.fake p {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: .05em;
+  font-size: 18px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
