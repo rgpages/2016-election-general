@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 			         '<%= pkg.licenses ? " * @license Released under the " + _.pluck(pkg.licenses, "type").join(", ") + ".\\n" : "" %>' +
 			         '<%= pkg.version ? " * @version " + pkg.version + "\\n" : "" %>' +
 			         ' * @date <%= grunt.template.today("yyyy/mm/dd") %>\n' +
-			         ' */\n\n',
+			         ' */\n\n'
 			
 		},
 		
@@ -90,11 +90,11 @@ module.exports = function(grunt) {
 					targetDir : './files/plugins', // A directory where you want to keep your Bower packages.
 					cleanup : true,                // Will clean target and bower directories.
 					layout : 'byComponent',        // Folder structure type.
-					verbose : true,                // Debug output.
+					verbose : true                // Debug output.
 					
-				},
+				}
 				
-			},
+			}
 			
 		},
 		
@@ -112,18 +112,18 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					stderr : false,
+					stderr : false
 					
 				},
 				
 				command : [
 					
 					// Remove unwanted Bower plugin dependencies:
-					'rm -rf files/plugins/{eventEmitter,eventie}',
+					'rm -rf files/plugins/{eventEmitter,eventie}'
 					
-				].join(';'),
+				].join(';')
 				
-			},
+			}
 			
 		},
 		
@@ -143,11 +143,11 @@ module.exports = function(grunt) {
 				'<%= jshint.init %>',
 				'./files/scripts/**/*',
 				'./files/styles/**/*',
-				'./files/templates/**/*',
+				'./files/templates/**/*'
 				
 			],
 			
-			tasks : ['default'],
+			tasks : ['default']
 			
 		},
 		
@@ -164,16 +164,16 @@ module.exports = function(grunt) {
 			
 			options : {
 				
-				jshintrc : '.jshintrc', // Defined options and globals.
+				jshintrc : '.jshintrc' // Defined options and globals.
 				
 			},
 			
 			init : [
 				
 				'./Gruntfile.js',
-				'./files/scripts/<%= pkg.name %>.*.js',
+				'./files/scripts/<%= pkg.name %>.*.js'
 				
-			],
+			]
 			
 		},
 		
@@ -189,15 +189,15 @@ module.exports = function(grunt) {
 			
 			dev : {
 				
-				NODE_ENV : 'DEVELOPMENT',
+				NODE_ENV : 'DEVELOPMENT'
 				
 			},
 			
 			prod : {
 				
-				NODE_ENV : 'PRODUCTION',
+				NODE_ENV : 'PRODUCTION'
 				
-			},
+			}
 			
 		},
 		
@@ -213,13 +213,13 @@ module.exports = function(grunt) {
 			
 			options : {
 				
-				force : true, // Allows for deletion of folders outside current working dir (CWD). Use with caution.
+				force : true // Allows for deletion of folders outside current working dir (CWD). Use with caution.
 				
 			},
 			
 			dev : [
 				
-				'../dev/**/*',
+				'../dev/**/*'
 				
 			],
 			
@@ -229,9 +229,9 @@ module.exports = function(grunt) {
 				'apple-touch-icon-precomposed.png',
 				'favicon.ico',
 				'../index.html',
-				'../attn.html',
+				'../attn.html'
 				
-			],
+			]
 			
 		},
 		
@@ -250,7 +250,7 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					banner : '<%= banner.short %>',
+					banner : '<%= banner.short %>'
 					
 				},
 				
@@ -267,19 +267,19 @@ module.exports = function(grunt) {
 						'./files/scripts/<%= pkg.name %>.js',
 						'./files/scripts/<%= pkg.name %>.mod.*.js',
 						'./files/scripts/<%= pkg.name %>.init.js',
-						'./files/scripts/pending.js', // Bypass jshint, for quick and dirty JS tests.
+						'./files/scripts/pending.js' // Bypass jshint, for quick and dirty JS tests.
 					],
 					
 					'../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/scripts/attn.min.js' : [
 						'./files/scripts/jquery.js',
 						'./files/scripts/jquery.pollster.js',
 						'./files/scripts/iframeResizer.contentWindow.js',
-						'./files/scripts/attn.js',
-					],
+						'./files/scripts/attn.js'
+					]
 					
-				},
+				}
 				
-			},
+			}
 			
 		},
 		
@@ -309,13 +309,13 @@ module.exports = function(grunt) {
 						sm : 'all and (min-width: 640px)',
 						md : 'all and (min-width: 960px)',
 						lg : 'all and (min-width: 1280px)',
-						xl : 'all and (min-width: 1600px)',
+						xl : 'all and (min-width: 1600px)'
 						
-					},
+					}
 					
-				},
+				}
 				
-			},
+			}
 			
 		},
 		
@@ -334,7 +334,7 @@ module.exports = function(grunt) {
 				
 				noCache : true, // Don't cache to sassc files.
 				precision : 14, // How many digits of precision to use when outputting decimal numbers.
-				sourcemap : 'none', // Generate CSS source maps?
+				sourcemap : 'none' // Generate CSS source maps?
 				
 			},
 			
@@ -342,8 +342,8 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					banner : '<%= banner.long %>',
-					style : 'expanded', // Output style. Can be nested, compact, compressed, expanded.
+					//banner : '<%= banner.long %>',
+					style : 'expanded' // Output style. Can be nested, compact, compressed, expanded.
 					
 				},
 				
@@ -351,9 +351,9 @@ module.exports = function(grunt) {
 					
 					'../dev/styles/<%= pkg.name %>.css' : './files/styles/<%= pkg.name %>.scss',
 					'../dev/styles/development.css' : './files/styles/development.scss',
-					'../dev/styles/attn.css' : './files/styles/attn.scss',
+					'../dev/styles/attn.css' : './files/styles/attn.scss'
 					
-				},
+				}
 				
 			},
 			
@@ -362,18 +362,18 @@ module.exports = function(grunt) {
 				options : {
 					
 					banner : '<%= banner.short %>',
-					style : 'compressed',
+					style : 'compressed'
 					
 				},
 				
 				files : {
 					
 					'../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/styles/<%= pkg.name %>.min.css' : './files/styles/<%= pkg.name %>.scss',
-					'../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/styles/attn.min.css' : './files/styles/attn.scss',
+					'../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/styles/attn.min.css' : './files/styles/attn.scss'
 					
-				},
+				}
 				
-			},
+			}
 			
 		},
 		
@@ -406,9 +406,9 @@ module.exports = function(grunt) {
 					// There's got to be a better way to handle URI encoding on template level?
 					social_title : '<%= encodeURIComponent(pkg.title) %>',
 					social_description : '<%= encodeURIComponent(pkg.description) %>',
-					social_url : '<%= encodeURIComponent(pkg.production) %>',
+					social_url : '<%= encodeURIComponent(pkg.production) %>'
 					
-				},
+				}
 				
 			},
 			
@@ -423,13 +423,13 @@ module.exports = function(grunt) {
 						src : [
 							'**/*.html',
 							'!includes/**/*',
-							'!latest.html',
+							'!latest.html'
 						],
-						dest : '../dev/',
+						dest : '../dev/'
 						
-					},
+					}
 					
-				],
+				]
 				
 			},
 			
@@ -443,20 +443,20 @@ module.exports = function(grunt) {
 						cwd : './files/templates/',
 						src : [
 							'index.html',
-							'attn.html',
+							'attn.html'
 						],
-						dest : '../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/',
+						dest : '../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/'
 						
 					}, {
 						
 						src : './files/templates/latest.html',
-						dest : '../prod/index.html',
+						dest : '../prod/index.html'
 						
-					},
+					}
 					
-				],
+				]
 				
-			},
+			}
 			
 		},
 		
@@ -482,13 +482,13 @@ module.exports = function(grunt) {
 						src : [
 							'images/**/*.{gif,png}',
 							'media/**/*',
-							'scripts/**/*',
+							'scripts/**/*'
 						],
-						dest : '../dev/',
+						dest : '../dev/'
 						
-					},
+					}
 					
-				],
+				]
 				
 			},
 			
@@ -503,9 +503,9 @@ module.exports = function(grunt) {
 						src : [
 							'images/**/*.{gif,png}',
 							'media/**/*',
-							'!**/junk/**',
+							'!**/junk/**'
 						],
-						dest : '../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/',
+						dest : '../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/'
 						
 					}, {
 						
@@ -514,30 +514,30 @@ module.exports = function(grunt) {
 						cwd: './files/icons/',
 						src: [
 							'!**/fonts/**',
-							'!**/psd/**',
+							'!**/psd/**'
 						],
 						dest:'../',
-						filter: 'isFile',
+						filter: 'isFile'
 						
 					}, {
 						
 						// COPY INDEX TO ROOT:
 						src: '../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/index.html',
-						dest: '../index.html',
+						dest: '../index.html'
 						
 					}, {
 						
 						// COPY ATTN TO ROOT:
 						src: '../prod/<%= pkg.version %>/<%= now %>/<%= ver %>/attn.html',
-						dest: '../attn.html',
+						dest: '../attn.html'
 						
-					},
+					}
 					
-				],
+				]
 				
-			},
+			}
 			
-		},
+		}
 		
 	});
 	
@@ -576,14 +576,14 @@ module.exports = function(grunt) {
 	
 	//----------------------------------
 	
-	grunt.registerTask('init', ['jshint',]);
+	grunt.registerTask('init', ['jshint']);
 	
-	grunt.registerTask('plugins', ['bower', 'shell',]);
+	grunt.registerTask('plugins', ['bower', 'shell']);
 	
-	grunt.registerTask('dev', ['init', 'env:dev', 'clean:dev', 'pure_grids', 'sass:dev', 'preprocess:dev', 'copy:dev',]);
+	grunt.registerTask('dev', ['init', 'env:dev', 'clean:dev', 'pure_grids', 'sass:dev', 'preprocess:dev', 'copy:dev']);
 	
-	grunt.registerTask('prod', ['init', 'dev', 'env:prod', 'clean:prod', 'pure_grids', 'sass:prod', 'uglify:prod', 'preprocess:prod', 'copy:prod',]);
+	grunt.registerTask('prod', ['init', 'dev', 'env:prod', 'clean:prod', 'pure_grids', 'sass:prod', 'uglify:prod', 'preprocess:prod', 'copy:prod']);
 	
-	grunt.registerTask('default', ['dev',]);
+	grunt.registerTask('default', ['dev']);
 	
 };

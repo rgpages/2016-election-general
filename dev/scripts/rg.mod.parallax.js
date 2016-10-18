@@ -6,12 +6,6 @@ RG.register(function() {
 	
 	var $window = $(window);
 	
-	$window.scroll(function() {
-		
-		parallax();
-		
-	});
-	
 	function parallax() {
 		
 		var scrolled = $window.scrollTop();
@@ -19,5 +13,11 @@ RG.register(function() {
 		$('#parallax').css('background-position', '50% ' + ((scrolled * .5) + 'px'));
 		
 	}
+	
+	$window.scroll(function() {
+		
+		parallax();
+		
+	});
 	
 }); // RG

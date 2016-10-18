@@ -1,10 +1,12 @@
 /*
- * File: iframeSizer.contentWindow.js
+ * File: iframeResizer.contentWindow.js
  * Desc: Include this file in any page being loaded into an iframe
  *       to force the iframe to resize to the content size.
  * Requires: iframeResizer.js on host page.
+ * Doc: https://github.com/davidjbradshaw/iframe-resizer
  * Author: David J. Bradshaw - dave@bradshaw.net
  * Contributor: Jure Mav - jure.mav@gmail.com
+ * Contributor: Ian Caunce - ian@hallnet.co.uk
  */
 
 ;(function() {
@@ -20,12 +22,13 @@
 		calculateWidth        = false,
 		doubleEventList       = {'resize':1,'click':1},
 		eventCancelTimer      = 128,
-		height                = 1,
 		firstRun              = true,
+		height                = 1,
 		heightCalcModeDefault = 'offset',
 		heightCalcMode        = heightCalcModeDefault,
 		initLock              = true,
 		initMsg               = '',
+		inPageLinks           = {},
 		interval              = 32,
 		logging               = false,
 		msgID                 = '[iFrameSizer]',  //Must match host page msg ID
@@ -33,6 +36,7 @@
 		myID                  = '',
 		publicMethods         = false,
 		resetRequiredMethods  = {max:1,scroll:1,bodyScroll:1,documentElementScroll:1},
+		resizeFrom            = 'child',
 		targetOriginDefault   = '*',
 		target                = window.parent,
 		tolerance             = 0,
@@ -77,6 +81,7 @@
 		stopInfiniteResizingOfIFrame();
 		setupPublicMethods();
 		startEventListeners();
+		inPageLinks = setupInPageLinks();
 		sendSize('init','Init message from host page');
 	}
 
@@ -88,18 +93,20 @@
 			return 'true' === str ? true : false;
 		}
 
-		myID             = data[0];
-		bodyMargin       = (undefined !== data[1]) ? Number(data[1])   : bodyMargin; //For V1 compatibility
-		calculateWidth   = (undefined !== data[2]) ? strBool(data[2])  : calculateWidth;
-		logging          = (undefined !== data[3]) ? strBool(data[3])  : logging;
-		interval         = (undefined !== data[4]) ? Number(data[4])   : interval;
-		publicMethods    = (undefined !== data[5]) ? strBool(data[5])  : publicMethods;
-		autoResize       = (undefined !== data[6]) ? strBool(data[6])  : autoResize;
-		bodyMarginStr    = data[7];
-		heightCalcMode   = (undefined !== data[8]) ? data[8]           : heightCalcMode;
-		bodyBackground   = data[9];
-		bodyPadding      = data[10];
-		tolerance        = (undefined !== data[11]) ? Number(data[11]) : tolerance;
+		myID               = data[0];
+		bodyMargin         = (undefined !== data[1]) ? Number(data[1])   : bodyMargin; //For V1 compatibility
+		calculateWidth     = (undefined !== data[2]) ? strBool(data[2])  : calculateWidth;
+		logging            = (undefined !== data[3]) ? strBool(data[3])  : logging;
+		interval           = (undefined !== data[4]) ? Number(data[4])   : interval;
+		publicMethods      = (undefined !== data[5]) ? strBool(data[5])  : publicMethods;
+		autoResize         = (undefined !== data[6]) ? strBool(data[6])  : autoResize;
+		bodyMarginStr      = data[7];
+		heightCalcMode     = (undefined !== data[8]) ? data[8]           : heightCalcMode;
+		bodyBackground     = data[9];
+		bodyPadding        = data[10];
+		tolerance          = (undefined !== data[11]) ? Number(data[11]) : tolerance;
+		inPageLinks.enable = (undefined !== data[12]) ? strBool(data[12]): false;
+		resizeFrom         = (undefined !== data[13]) ? data[13]         : resizeFrom;
 	}
 
 	function chkCSS(attr,value){
@@ -118,7 +125,7 @@
 	}
 
 	function setMargin(){
-		//If called via V1 script, convert bodyMargin from int to str 
+		//If called via V1 script, convert bodyMargin from int to str
 		if (undefined === bodyMarginStr){
 			bodyMarginStr = bodyMargin+'px';
 		}
@@ -132,16 +139,36 @@
 		log('HTML & body height set to "auto"');
 	}
 
-	function initWindowResizeListener(){
-		addEventListener(window,'resize', function(){
-			sendSize('resize','Window resized');
-		});
+
+	function addTriggerEvent(options){
+		function addListener(eventName){
+			addEventListener(window,eventName,function(){
+				sendSize(options.eventName,options.eventType);
+			});
+		}
+
+		if(options.eventNames && Array.prototype.map){
+			options.eventName = options.eventNames[0];
+			options.eventNames.map(addListener);
+		} else {
+			addListener(options.eventName);
+		}
+
+		log('Added event listener: ' + options.eventType);
 	}
 
-	function initWindowClickListener(){
-		addEventListener(window,'click', function(){
-			sendSize('click','Window clicked');
-		});
+	function initEventListeners(){
+		addTriggerEvent({ eventType: 'Animation Start',           eventNames: ['animationstart','webkitAnimationStart'] });
+		addTriggerEvent({ eventType: 'Animation Iteration',       eventNames: ['animationiteration','webkitAnimationIteration'] });
+		addTriggerEvent({ eventType: 'Animation End',             eventNames: ['animationend','webkitAnimationEnd'] });
+		addTriggerEvent({ eventType: 'Device Orientation Change', eventName:  'orientationchange' });
+		addTriggerEvent({ eventType: 'Transition End',            eventNames: ['transitionend','webkitTransitionEnd','MSTransitionEnd','oTransitionEnd','otransitionend'] });
+		addTriggerEvent({ eventType: 'Window Clicked',            eventName:  'click' });
+		//addTriggerEvent({ eventType: 'Window Mouse Down',         eventName:  'mousedown' });
+		//addTriggerEvent({ eventType: 'Window Mouse Up',           eventName:  'mouseup' });
+		if('child' === resizeFrom){
+			addTriggerEvent({ eventType: 'IFrame Resized',        eventName:  'resize' });
+		}
 	}
 
 	function checkHeightMode(){
@@ -156,8 +183,7 @@
 
 	function startEventListeners(){
 		if ( true === autoResize ) {
-			initWindowResizeListener();
-			initWindowClickListener();
+			initEventListeners();
 			setupMutationObserver();
 		}
 		else {
@@ -172,34 +198,143 @@
 		document.body.appendChild(clearFix);
 	}
 
+	function setupInPageLinks(){
+
+		function getPagePosition (){
+			return {
+				x: (window.pageXOffset !== undefined) ? window.pageXOffset : document.documentElement.scrollLeft,
+				y: (window.pageYOffset !== undefined) ? window.pageYOffset : document.documentElement.scrollTop
+			};
+		}
+
+		function getElementPosition(el){
+			var
+				elPosition   = el.getBoundingClientRect(),
+				pagePosition = getPagePosition();
+
+			return {
+				x: parseInt(elPosition.left,10) + parseInt(pagePosition.x,10),
+				y: parseInt(elPosition.top,10)  + parseInt(pagePosition.y,10)
+			};
+		}
+
+		function findTarget(location){
+			var hash = location.split("#")[1] || "";
+			var hashData = decodeURIComponent(hash);
+
+			function jumpToTarget(target){
+				var jumpPosition = getElementPosition(target);
+
+				log('Moving to in page link (#'+hash+') at x: '+jumpPosition.x+' y: '+jumpPosition.y);
+				sendMsg(jumpPosition.y, jumpPosition.x, 'scrollToOffset'); // X&Y reversed at sendMsg uses height/width
+			}
+
+			var target = document.getElementById(hashData) || document.getElementsByName(hashData)[0];
+
+			if (target){
+				jumpToTarget(target);
+			} else {
+				log('In page link (#' + hash + ') not found in iFrame, so sending to parent');
+				sendMsg(0,0,'inPageLink','#'+hash);
+			}
+		}
+
+		function checkLocationHash(){
+			if ('' !== location.hash && '#' !== location.hash){
+				findTarget(location.href);
+			}
+		}
+
+		function bindAnchors(){
+			function setupLink(el){
+				function linkClicked(e){
+					e.preventDefault();
+
+					/*jshint validthis:true */
+					findTarget(this.getAttribute('href'));
+				}
+
+				if ('#' !== el.getAttribute('href')){
+					addEventListener(el,'click',linkClicked);
+				}
+			}
+
+			Array.prototype.forEach.call( document.querySelectorAll( 'a[href^="#"]' ), setupLink );
+		}
+
+		function bindLocationHash(){
+			addEventListener(window,'hashchange',checkLocationHash);
+		}
+
+		function initCheck(){ //check if page loaded with location hash after init resize
+			setTimeout(checkLocationHash,eventCancelTimer);
+		}
+
+		function enableInPageLinks(){
+			if(Array.prototype.forEach && document.querySelectorAll){
+				log('Setting up location.hash handlers');
+				bindAnchors();
+				bindLocationHash();
+				initCheck();
+			} else {
+				warn('In page linking not fully supported in this browser! (See README.md for IE8 workaround)');
+			}
+		}
+
+		if(inPageLinks.enable){
+			enableInPageLinks();
+		} else {
+			log('In page linking not enabled');
+		}
+
+		return {
+			findTarget:findTarget
+		};
+	}
+
 	function setupPublicMethods(){
 		if (publicMethods) {
 			log('Enable public methods');
 
 			window.parentIFrame = {
 				close: function closeF(){
-					sendSize('close','parentIFrame.close()', 0, 0);
+					sendMsg(0,0,'close');
 				},
+
 				getId: function getIdF(){
 					return myID;
 				},
+
+				moveToAnchor: function moveToAnchorF(hash){
+					inPageLinks.findTarget(hash);
+				},
+
 				reset: function resetF(){
-					resetIFrame('parentIFrame.size');
+					resetIFrame('parentIFrame.reset');
 				},
+
 				scrollTo: function scrollToF(x,y){
-					sendMsg(y,x,'scrollTo'); // X&Y reversed at sendMsg uses hieght/width
+					sendMsg(y,x,'scrollTo'); // X&Y reversed at sendMsg uses height/width
 				},
+
+				scrollToOffset: function scrollToF(x,y){
+					sendMsg(y,x,'scrollToOffset'); // X&Y reversed at sendMsg uses height/width
+				},
+
 				sendMessage: function sendMessageF(msg,targetOrigin){
-					sendMsg(0,0,'message',msg,targetOrigin);
+					sendMsg(0,0,'message',JSON.stringify(msg),targetOrigin);
 				},
+
 				setHeightCalculationMethod: function setHeightCalculationMethodF(heightCalculationMethod){
 					heightCalcMode = heightCalculationMethod;
 					checkHeightMode();
 				},
+
 				setTargetOrigin: function setTargetOriginF(targetOrigin){
 					log('Set targetOrigin: '+targetOrigin);
 					targetOriginDefault = targetOrigin;
 				},
+
 				size: function sizeF(customHeight, customWidth){
 					var valString = ''+(customHeight?customHeight:'')+(customWidth?','+customWidth:'');
 					lockTrigger();
@@ -428,11 +563,7 @@
 			currentHeight = (undefined !== customHeight)  ? customHeight : getHeight[heightCalcMode]();
 			currentWidth  = (undefined !== customWidth )  ? customWidth  : getWidth();
 
-			return	checkTolarance(height,currentHeight) ||
-					(calculateWidth && checkTolarance(width,currentWidth));
-
-			//return	(height !== currentHeight) ||
-			//		(calculateWidth && width !== currentWidth);
+			return	checkTolarance(height,currentHeight) || (calculateWidth && checkTolarance(width,currentWidth));
 		}
 
 		function isForceResizableEvent(){
@@ -457,7 +588,7 @@
 		}
 
 		if (!isDoubleFiredEvent()){
-			if (isSizeChangeDetected()){
+			if (isSizeChangeDetected() || 'init' === triggerEvent){
 				recordTrigger();
 				lockTrigger();
 				resizeIFrame();
@@ -545,6 +676,10 @@
 			}
 		}
 
+		function resizeFromParent(){
+			sendSize('resizeParent','Parent window resized');
+		}
+
 		function getMessageType(){
 			return event.data.split(']')[1];
 		}
@@ -554,18 +689,29 @@
 		}
 
 		function isInitMsg(){
-			//test if this message is from a child below us. This is an ugly test, however, updating
+			//Test if this message is from a child below us. This is an ugly test, however, updating
 			//the message format would break backwards compatibity.
 			return event.data.split(':')[2] in {'true':1,'false':1};
 		}
 
 		if (isMessageForUs()){
-			if (firstRun && isInitMsg()){ //Check msg ID
+			if (false === firstRun) {
+				switch (getMessageType()){
+				case 'reset':
+					resetFromParent();
+					break;
+				case 'resize':
+					resizeFromParent();
+					break;
+				default:
+					if (!isMiddleTier()){
+						warn('Unexpected message ('+event.data+')');
+					}
+				}
+			} else if (isInitMsg()) {
 				initFromParent();
-			} else if ('reset' === getMessageType()){
-				resetFromParent();
-			} else if (event.data !== initMsg && !isMiddleTier()){
-				warn('Unexpected message ('+event.data+')');
+			} else {
+				log('Ignored message of type "' + getMessageType() + '". Received before initialization.');
 			}
 		}
 	}

@@ -23,7 +23,8 @@ RG.register(function() {
 	
 	$.pollster({
 		target: 'parallax',
-		api: 'http://sandbox.registerguard.com/electionssp/',
+		// api: 'http://sandbox.registerguard.com/electionssp/',
+		api: 'http://sandbox.registerguard.com/ssp/index.php?id=213',
 		seconds: 360, // 6 mins.
 		callback: function($data, $options) {
 			
@@ -38,10 +39,13 @@ RG.register(function() {
 			
 			$.each($data, function(i, v) {
 				
+				//console.log(v);
+				
 				$images.push({
-					url: v.url,
+					//url: v.url,
+					url: v.image,
 					caption: v.caption,
-					credit: v.credit,
+					credit: v.byline,
 					org: v.org
 				});
 				
