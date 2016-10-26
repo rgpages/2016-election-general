@@ -6,7 +6,7 @@ RG.register(function() {
 	'use strict';
 	
 	$.pollster.defaults.api = 'http://registerguard.com/csp/cms/sites/rg/feeds/json.csp';
-	$.pollster.defaults.seconds = 180; // 3 mins.
+	$.pollster.defaults.seconds = 1800; // 30 mins.
 	
 	$.each($('.stories'), function(n, y) {
 		
