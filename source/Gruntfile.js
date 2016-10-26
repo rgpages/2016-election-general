@@ -360,7 +360,7 @@ module.exports = function(grunt) {
 				
 				options : {
 					
-					banner : '<%= banner.short %>',
+					//banner : '<%= banner.short %>',
 					style : 'compressed'
 					
 				},

@@ -1,22 +1,22 @@
 {
-  "title": "Election 2014",
+  "title": "Election 2016",
   "name": "rg",
   "description": "Latest news, recent coverage and results starting at 8 p.m.",
   "version": "0.1.1",
-  "homepage": "https://github.com/registerguard/election-2014-general",
+  "homepage": "https://github.com/rgpages/election-2016-general",
   "repository": {
     "type": "git",
-    "url": "git://github.com/registerguard/election-2014-general.git"
+    "url": "git://github.com/rgpages/election-2016-general.git"
   },
   "author": {
-    "name": "Micky Hulse",
-    "url": "http://mky.io"
+    "name": "The Register-Guard",
+    "url": "http://registerguard.com"
   },
   "//": "The following FQDN is the endpoint for your assets (no trailing slash):",
   "production": "http://vote.registerguard.com",
   "licenses": [
     {
-      "type": "Copyright © The Register-Guard 2014. All rights reserved.",
+      "type": "Copyright © The Register-Guard 2016. All rights reserved.",
       "url": "http://registerguard.com"
     }
   ],
