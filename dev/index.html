@@ -62,20 +62,20 @@
 		var _ox = OX();
 		
 		// Section front:
-		_ox.addAdUnit('537200277'); // Leaderboard 1
-		_ox.addAdUnit('537200313'); // Mobile Banner
 		_ox.addAdUnit('537229382'); // Medium Rectangle 1
 		_ox.addAdUnit('537229386'); // Medium Rectangle 2
-		
-		// ROS:
-		_ox.addAdUnit('537200307'); // ROS Leaderboard Bottom
-		_ox.addAdUnit('537200312'); // ROS Mobile Banner Bottom
-		
-		// Variables:
-		_ox.addVariable('bp', ((window.innerWidth <= 960) ? 'm' : 'd'));
+		if (document.documentElement.clientWidth <= 1004){
+			// Mobile
+			_ox.addAdUnit('537200313'); // Mobile Banner
+			_ox.addAdUnit('537200312'); // ROS Mobile Banner Bottom
+		} else {
+			// Desktop
+			_ox.addAdUnit('537200277'); // Leaderboard 1
+			_ox.addAdUnit('537200307'); // ROS Leaderboard Bottom
+		}
 		
 		_ox.addVariable('s', 'news');
-		_ox.addVariable('c', 'election-2014');
+		_ox.addVariable('c', 'local');
 		
 		// Get ads:
 		_ox.fetchAds();
@@ -140,7 +140,7 @@
 	
 </header>
 
-<div style="text-align:center; color:red;font-size: 3em;line-height:2em;">THIS IS A TESTING WEBSITE PRIOR TO THE ELECTION</div>
+<!-- <div style="text-align:center; color:red;font-size: 3em;line-height:2em;">THIS IS A TESTING WEBSITE PRIOR TO THE ELECTION</div> -->
 
 <main role="main">
 	
@@ -196,9 +196,24 @@
 				</section>
 				
 				
+				<div class="banner">
+					
+					<p>Advertisement</p>
+					
+					<!-- //////////////////// Leaderboard 1 \\\\\\\\\\\\\\\\\\\\ -->
+					<div class="advert"><div id="leaderboard-1"><script>_ox.showAdUnit('537200277');</script></div></div>
+					<!-- \\\\\\\\\\\\\\\\\\\\ Leaderboard 1 //////////////////// -->
+					
+					<!-- //////////////////// Mobile Banner \\\\\\\\\\\\\\\\\\\\ -->
+					<div class="advert"><div id="mobile-banner"><script>_ox.showAdUnit('537200313');</script></div></div>
+					<!-- \\\\\\\\\\\\\\\\\\\\ Mobile Banner //////////////////// -->
+					
+				</div> <!-- /.banner -->
+				
+				
 				<hr>
 				
-				<!-- xxx@includexxx includes/results.html -->
+				<!-- xxxincludexxx includes/results.html -->
 				
 				
 			</div> <!-- /.core -->

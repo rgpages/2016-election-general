@@ -62,20 +62,20 @@
 		var _ox = OX();
 		
 		// Section front:
-		_ox.addAdUnit('537200277'); // Leaderboard 1
-		_ox.addAdUnit('537200313'); // Mobile Banner
 		_ox.addAdUnit('537229382'); // Medium Rectangle 1
 		_ox.addAdUnit('537229386'); // Medium Rectangle 2
-		
-		// ROS:
-		_ox.addAdUnit('537200307'); // ROS Leaderboard Bottom
-		_ox.addAdUnit('537200312'); // ROS Mobile Banner Bottom
-		
-		// Variables:
-		_ox.addVariable('bp', ((window.innerWidth <= 960) ? 'm' : 'd'));
+		if (document.documentElement.clientWidth <= 1004){
+			// Mobile
+			_ox.addAdUnit('537200313'); // Mobile Banner
+			_ox.addAdUnit('537200312'); // ROS Mobile Banner Bottom
+		} else {
+			// Desktop
+			_ox.addAdUnit('537200277'); // Leaderboard 1
+			_ox.addAdUnit('537200307'); // ROS Leaderboard Bottom
+		}
 		
 		_ox.addVariable('s', 'news');
-		_ox.addVariable('c', 'election-2014');
+		_ox.addVariable('c', 'local');
 		
 		// Get ads:
 		_ox.fetchAds();
