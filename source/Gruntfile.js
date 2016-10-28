@@ -550,17 +550,16 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					bucket: 'vote.registerguard.com',
-					differential: true,
-					gzipRename: 'ext'
+					differential: true
 				},
 				files: [
 					{
-						src: './test.txt',
-						dest: 'test.txt'
+						src: '/index.html',
+						dest: 'index.html'
 					},
 					{
 						expand: true,
-						src: './testytest/**/*',
+						src: '/prod/**/**/**/**/*',
 						dest: '.'
 					}
 				]
