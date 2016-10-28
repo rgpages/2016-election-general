@@ -550,17 +550,18 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					bucket: 'vote.registerguard.com',
-					differential: true
+					differential: true,
+					access: 'public-read'
 				},
 				files: [
 					{
-						src: '/index.html',
-						dest: 'index.html'
+						src: '../index.html',
+						dest: '/'
 					},
 					{
 						expand: true,
-						src: '/prod/**/**/**/**/*',
-						dest: '.'
+						src: '../prod/**/**/**/**/*',
+						dest: '/prod/'
 					}
 				]
 			}
