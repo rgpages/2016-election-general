@@ -481,7 +481,8 @@ module.exports = function(grunt) {
 						src : [
 							'images/**/*.{gif,png}',
 							'media/**/*',
-							'scripts/**/*'
+							'scripts/**/*',
+							'results/*'
 						],
 						dest : '../dev/'
 						
@@ -536,6 +537,34 @@ module.exports = function(grunt) {
 				
 			}
 			
+		},
+		
+		keys: grunt.file.readJSON('aws-keys.json'),
+		
+		aws_s3: {
+			options: {
+				accessKeyId: '<%= keys.AWSAccessKeyId %>',
+				secretAccessKey: '<%= keys.AWSSecretKey %>',
+				region: 'us-west-2'
+			},
+			dev: {
+				options: {
+					bucket: 'vote.registerguard.com',
+					differential: true,
+					gzipRename: 'ext'
+				},
+				files: [
+					{
+						src: './test.txt',
+						dest: 'test.txt'
+					},
+					{
+						expand: true,
+						src: './testytest/**/*',
+						dest: '.'
+					}
+				]
+			}
 		}
 		
 	});
@@ -564,6 +593,8 @@ module.exports = function(grunt) {
 	
 	grunt.loadNpmTasks('grunt-shell');
 	
+	grunt.loadNpmTasks('grunt-aws-s3');
+	
 	//----------------------------------
 	
 	/**
@@ -579,9 +610,11 @@ module.exports = function(grunt) {
 	
 	grunt.registerTask('plugins', ['bower', 'shell']);
 	
-	grunt.registerTask('dev', ['init', 'env:dev', 'clean:dev', 'pure_grids', 'sass:dev', 'preprocess:dev', 'copy:dev']);
+	grunt.registerTask('dev', ['init', 'env:dev', 'clean:dev', 'pure_grids', 'sass:dev', 'preprocess:dev', 'copy:dev' ]);
 	
 	grunt.registerTask('prod', ['init', 'dev', 'env:prod', 'clean:prod', 'pure_grids', 'sass:prod', 'uglify:prod', 'preprocess:prod', 'copy:prod']);
+	
+	grunt.registerTask('push', ['aws_s3:dev']);
 	
 	grunt.registerTask('default', ['dev']);
 	

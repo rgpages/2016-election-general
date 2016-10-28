@@ -1684,12 +1684,6 @@ ins {
   text-decoration: none;
   background: rgba(223, 242, 191, 0.5);
 }
-ins::before {
-  content: "[";
-}
-ins::after {
-  content: "]";
-}
 
 q {
   font-weight: bolder;
