@@ -566,6 +566,7 @@ RG.register(function() {
 						
 					}
 					
+					// Fill in .poll-bar-votes bars
 					$('#' + id2)
 						.width(percent)
 						.children('span')

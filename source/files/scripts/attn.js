@@ -23,9 +23,11 @@ $(function() {
 	});
 	
 	$.pollster({
-		api: 'http://projects.registerguard.com/ballot/json/topset/',
-		seconds: 60, // 1 min.
+		//api: 'http://projects.registerguard.com/ballot/json/topset/',
+		api: './results/topset.json',
+		seconds: 1800, // 30 min.
 		target: 'attn',
+		type: 'json',
 		callback: function($data, $options) {
 			
 			var $this = $(this);

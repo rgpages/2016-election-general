@@ -2772,9 +2772,11 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
 
 .base {
   background-color: #fff;
-  margin-top: -1px;
-  margin-bottom: -1px;
-  padding: 1px 0;
+  /*margin: {
+  	top: -1px;
+  	bottom: -1px;
+  }
+  padding: 1px 0;*/
 }
 
 .wrap {
@@ -2817,6 +2819,15 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   }
 }
 
+#tbi {
+  order: -1;
+}
+
+@media all and (min-width: 960px) {
+  #tbi {
+    order: 9999;
+  }
+}
 #header {
   background-color: #000;
   margin-top: -40px;
@@ -3568,6 +3579,47 @@ nav[role="navigation"] .harmonia-select {
     margin-top: 0;
     border-radius: 0 0 3px 3px;
   }
+}
+
+#tbi #tbi-list .tbi-results .tbi-results-row {
+  vertical-align: middle;
+  margin: 2px 0;
+}
+#tbi #tbi-list .tbi-results .tbi-results-row h6 {
+  margin: 0;
+}
+#tbi #tbi-list .tbi-results .tbi-results-row .tbi-results-row-header {
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: .1em;
+  color: #666;
+  margin: 0;
+}
+#tbi #tbi-list .tbi-results .tbi-results-row .tbi-candidate {
+  font-weight: bold;
+}
+#tbi #tbi-list .tbi-results .tbi-results-row .tbi-percent {
+  text-align: center;
+}
+#tbi #tbi-list .tbi-results .tbi-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+#tbi #tbi-list .tbi-results .tbi-flex .tbi-flex-1 {
+  -webkit-flex: 1;
+  flex: 1;
+}
+#tbi #tbi-list .tbi-results .tbi-flex .tbi-flex-2 {
+  -webkit-flex: 2;
+  flex: 2;
+}
+#tbi #tbi-footer {
+  text-align: right;
 }
 
 .ion-head {
