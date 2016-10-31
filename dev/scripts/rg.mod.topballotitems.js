@@ -32,14 +32,14 @@ RG.register(function() {
 								
 								$.each(v2, function(k3, v3) {
 									
-									var id1 = 'con-' + v3.contest_id;
-									var more = id1 + '-target';
+									var target = 'con-' + v3.contest_id;
+									var id1 = 'topcon-' + v3.contest_id;
 									
 									template = [
 										//'<div class="story tbi-results" id="' + id1a + '">',
-										'<div id="' + more + '" class="story tbi-results">',
+										'<div id="' + id1 + '" class="story tbi-results">',
 											'<div class="tbi-flex tbi-results-row">',
-												'<h6 class="tbi-flex-2 tbi-resultes-row-header"><a href="#' + id1 + '">' + v3.contest_wrapper + '</a></h6>',
+												'<h6 class="tbi-flex-2 tbi-resultes-row-header"><a href="#' + target + '">' + v3.contest_wrapper + '</a></h6>',
 												'<span class="tbi-flex-1 tbi-results-row-header tbi-percent">Lane</span>',
 												'<span class="tbi-flex-1 tbi-results-row-header tbi-percent">State</span>',
 											'</div> <!-- /.tbi.flex /.tbi-results-row -->',
@@ -50,7 +50,7 @@ RG.register(function() {
 									
 									$.each(v3.race.slice(0, 2), function(k4, v4) {
 									
-										var id2 = 'con-' + v3.contest_id + '_cand-meas-' + v4.cand_meas_id;
+										var id2 = 'topcon-' + v3.contest_id + '_cand-meas-' + v4.cand_meas_id;
 										var lane = Math.round(v4.percent_of_lane_votes) + '%';
 										var state = Math.round(v4.percent_of_state_votes) + '%';
 										var lastname = v4.name.split(' ').pop();
@@ -64,7 +64,7 @@ RG.register(function() {
 										].join('\n');
 									
 										$div1
-											.find('#' + more)
+											.find('#' + id1)
 											.append(template);
 									
 									});

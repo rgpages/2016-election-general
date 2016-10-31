@@ -2,6 +2,8 @@ RG.register(function() {
 	
 	'use strict';
 	
-	$('a').smoothScroll();
+	setTimeout(function() {
+		$('a').smoothScroll();
+	}, 1000);
 	
 }); // RG
