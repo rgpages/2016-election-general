@@ -539,6 +539,14 @@ module.exports = function(grunt) {
 			
 		},
 		
+		/*----------------------------------( AWS-S3 )----------------------------------*/
+		
+		/**
+		 * Push stuff up to a bucket
+		 *
+		 * @see https://github.com/MathieuLoutre/grunt-aws-s3
+		 */
+		
 		keys: grunt.file.readJSON('aws-keys.json'),
 		
 		aws_s3: {

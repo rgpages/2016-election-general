@@ -86,32 +86,35 @@ RG.register(function() {
 							
 								$.each(v2, function(k3, v3) {
 								
-									var id1 = 'con-' + v3.contest_id;
+									var target = 'con-' + v3.contest_id;
+									var id1 = 'topcon-' + v3.contest_id;
 								
 									template = [
-										'<a id="' + id1 + '" href="http://vote.registerguard.com/#' + id1 + '">',
-											'<span class="attn-head">' + v3.short_description + '</span>',
-											'<span class="attn-row attn-label">',
-												'<span class="attn-col attn-name">' + v3.contest_name + '</span>',
-											'</span>',
-										'</a>'
+										//'<div class="story tbi-results" id="' + id1a + '">',
+										'<div id="' + id1 + '" class="story tbi-results">',
+											'<div class="tbi-flex tbi-results-row">',
+												'<h6 class="tbi-flex-2 tbi-resultes-row-header"><a href="#' + target + '">' + v3.contest_name + '</a></h6>',		//Change
+												'<span class="tbi-flex-1 tbi-results-row-header tbi-percent">Lane</span>',
+												'<span class="tbi-flex-1 tbi-results-row-header tbi-percent">State</span>',
+											'</div> <!-- /.tbi.flex /.tbi-results-row -->',
+										'</div> <!-- /.tbi-results -->'
 									].join('\n');
 								
 									$div2.append(template);
 								
 									$.each(v3.measure, function(k4, v4) {
 									
-										var id2 = 'con-' + v3.contest_id + '_cand-meas-' + v4.cand_meas_id;
-										var percent = Math.round(v4.percent_of_state_votes) + '%';
-										var name = v4.name.charAt(0).toLowerCase();
+										var id2 = 'topcon-' + v3.contest_id + '_cand-meas-' + v4.cand_meas_id;
+										var lane = Math.round(v4.percent_of_lane_votes) + '%';
+										var state = Math.round(v4.percent_of_state_votes) + '%';
+										var option = v4.name;																									//Change
 									
 										template = [
-											'<span id="' + id2 + '" class="attn-row">',
-												'<span class="attn-col">',
-													'<span class="attn-circle attn-' + name + '">' + name + '</span>',
-												'</span>',
-												'<span class="attn-col">' + percent + '</span>',
-											'</span>'
+											'<div id="' + id2 + '" class="tbi-flex tbi-results-row">',
+												'<span class="tbi-flex-2 tbi-candidate h3">' + option + '</span>',															//Change
+												'<span class="tbi-flex-1 tbi-percent sh3">' + lane + '</span>',
+												'<span class="tbi-flex-1 tbi-percent sh3">' + state + '</span>',
+											'</div>'
 										].join('\n');
 									
 										$div2
