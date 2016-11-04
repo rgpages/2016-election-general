@@ -68,7 +68,28 @@
 	}// #tbi-list
 	
 	#tbi-footer{
+		
 		text-align: right;
+		font: 11px/24px Arial, sans-serif;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: $gray6;
+		margin: 0;
+		padding: 0;
+	
+		a {
+			color: $gray9;
+			text-decoration: none;
+		}
+		a:visited { color: $gray9; }
+		.no-touch a:visited:hover,
+		a:focus,
+		.no-touch a:focus:hover,
+		.no-touch a:hover,
+		a:active {
+			color: $raven;
+			text-decoration: underline;
+		}
 	}
 		
 }// #tbi

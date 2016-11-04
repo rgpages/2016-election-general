@@ -139,6 +139,8 @@ RG.register(function() {
 				.removeClass('loading')
 				.html($div1.add($div2));
 			
+			$('#tbi-footer').css('display', 'block');
+			
 		}
 	});
 	

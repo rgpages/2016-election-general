@@ -3620,6 +3620,27 @@ nav[role="navigation"] .harmonia-select {
 }
 #tbi #tbi-footer {
   text-align: right;
+  font: 11px/24px Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #666;
+  margin: 0;
+  padding: 0;
+}
+#tbi #tbi-footer a {
+  color: #999;
+  text-decoration: none;
+}
+#tbi #tbi-footer a:visited {
+  color: #999;
+}
+#tbi #tbi-footer .no-touch a:visited:hover,
+#tbi #tbi-footer a:focus,
+#tbi #tbi-footer .no-touch a:focus:hover,
+#tbi #tbi-footer .no-touch a:hover,
+#tbi #tbi-footer a:active {
+  color: #000;
+  text-decoration: underline;
 }
 
 .ion-head {

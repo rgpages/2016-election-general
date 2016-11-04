@@ -8,7 +8,13 @@ RG.register(function() {
 	$.pollster({
 		target: 'ap-stories',
 		api: 'http://projects.registerguard.com/ballot/json/ap_elex_stories/7/',
+		//api: 'http://internet02.guardnet.com:8000/ballot/json/ap_elex_stories/3/',
 		seconds: 1800, // 30 mins.
+		//seconds: 2,
+		//cache: false,
+		//type: 'jsonp',
+		//params: '&floobert=' + $.now(),
+		//params: '&time=' + $.now(), //See: http://stackoverflow.com/a/14395100
 		callback: function($data, $options) {
 			
 			var $this = $(this);

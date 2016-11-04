@@ -65,6 +65,10 @@
 								
 								$loader.fadeOut(); // Fade OUT loader if it exists.
 								
+							},
+							error: function (request, status, error) { 
+								
+								console.log(status + ", " + error); 
 							}
 							
 						})
