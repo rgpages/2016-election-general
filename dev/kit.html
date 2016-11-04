@@ -53,26 +53,33 @@
 	<!-- [END] Zeppelin -->
 	
 	<!-- [BEGIN] OpenX -->
+	<link rel="stylesheet" href="http://advertising.registerguard.com/assets/hosted/css/ads.css?v=20141020">
 	<script src="//ox-d.registerguard.com/w/1.0/jstag"></script>
 	<script>
 		
 		var _ox = OX();
 		
-		// Section front:
-		_ox.addAdUnit('537229382'); // Medium Rectangle 1
-		_ox.addAdUnit('537229386'); // Medium Rectangle 2
+		// Story page:
+		_ox.addAdUnit('537200298'); // Medium Rectangle 1
+		_ox.addAdUnit('537200299'); // Medium Rectangle 2
 		if (document.documentElement.clientWidth <= 1004){
 			// Mobile
-			_ox.addAdUnit('537200313'); // Mobile Banner
+			_ox.addAdUnit('537200316'); // Mobile Banner
 			_ox.addAdUnit('537200312'); // ROS Mobile Banner Bottom
 		} else {
 			// Desktop
-			_ox.addAdUnit('537200277'); // Leaderboard 1
+			_ox.addAdUnit('537200296'); // Leaderboard 1
 			_ox.addAdUnit('537200307'); // ROS Leaderboard Bottom
 		}
 		
+		// Content Topics:
+		_ox.addContentTopic(1001, 'Local News');
+		_ox.addContentTopic(0, 'Election 2016');
+		
+		// Variables:
 		_ox.addVariable('s', 'news');
 		_ox.addVariable('c', 'local');
+		
 		_ox.addVariable('cms-id', 'rgvote2016');
 		
 		// Get ads:
@@ -2008,7 +2015,7 @@ p q r s t u v w x y z { | } ~
 	<!-- [END] Quantcast -->
 	
 	<!-- [BEGIN] Analytics -->
-	<script>(function(r,g,n,e,w,s){r.GoogleAnalyticsObject=e;r[e]||(r[e]=function(){(r[e].q=r[e].q||[]).push(arguments)});r[e].l=+new Date;w=g.createElement(n);s=g.getElementsByTagName(n)[0];w.src='//www.google-analytics.com/analytics.js';s.parentNode.insertBefore(w,s)}(window,document,'script','ga'));ga('create','UA-882065-1','registerguard.com');ga('require','displayfeatures');ga('require','linkid','linkid.js');ga('send','pageview');</script>
+	<script>(function(r,g,n,e,w,s){r.GoogleAnalyticsObject=e;r[e]||(r[e]=function(){(r[e].q=r[e].q||[]).push(arguments)});r[e].l=+new Date;w=g.createElement(n);s=g.getElementsByTagName(n)[0];w.async=1;w.src='//www.google-analytics.com/analytics.js';s.parentNode.insertBefore(w,s)}(window,document,'script','ga'));ga('create','UA-882065-1','registerguard.com');ga('require','displayfeatures');ga('require','linkid','linkid.js');ga('send','pageview',{'dimension1':'Web editors','dimension2':'rgvote2016','dimension3':'Nov 8, 2016 08:00PM','dimension4':'http://vote.registerguard.com/','dimension5':'Election 2016','dimension6':'','dimension7':'Election 2016'});</script>
 	<!-- [END] Analytics -->
 	
 	<!-- [BEGIN] Chartbeat -->

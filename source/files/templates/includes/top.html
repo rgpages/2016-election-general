@@ -60,26 +60,33 @@
 	<!-- [END] Zeppelin -->
 	
 	<!-- [BEGIN] OpenX -->
+	<link rel="stylesheet" href="http://advertising.registerguard.com/assets/hosted/css/ads.css?v=20141020">
 	<script src="//ox-d.registerguard.com/w/1.0/jstag"></script>
 	<script>
 		
 		var _ox = OX();
 		
-		// Section front:
-		_ox.addAdUnit('537229382'); // Medium Rectangle 1
-		_ox.addAdUnit('537229386'); // Medium Rectangle 2
+		// Story page:
+		_ox.addAdUnit('537200298'); // Medium Rectangle 1
+		_ox.addAdUnit('537200299'); // Medium Rectangle 2
 		if (document.documentElement.clientWidth <= 1004){
 			// Mobile
-			_ox.addAdUnit('537200313'); // Mobile Banner
+			_ox.addAdUnit('537200316'); // Mobile Banner
 			_ox.addAdUnit('537200312'); // ROS Mobile Banner Bottom
 		} else {
 			// Desktop
-			_ox.addAdUnit('537200277'); // Leaderboard 1
+			_ox.addAdUnit('537200296'); // Leaderboard 1
 			_ox.addAdUnit('537200307'); // ROS Leaderboard Bottom
 		}
 		
+		// Content Topics:
+		_ox.addContentTopic(1001, 'Local News');
+		_ox.addContentTopic(0, 'Election 2016');
+		
+		// Variables:
 		_ox.addVariable('s', 'news');
 		_ox.addVariable('c', 'local');
+		
 		_ox.addVariable('cms-id', 'rgvote2016');
 		
 		// Get ads:

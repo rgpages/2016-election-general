@@ -2980,7 +2980,6 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   font-weight: normal;
   font-size: 20px;
   line-height: 25px;
-  letter-spacing: .15em;
   color: #ccc;
   text-rendering: optimizeLegibility;
   -webkit-font-feature-settings: "kern";
@@ -2992,7 +2991,6 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   #header #masthead > div h3 {
     font-size: 30px;
     line-height: 30px;
-    letter-spacing: .075em;
   }
 }
 
