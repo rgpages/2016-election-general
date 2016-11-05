@@ -3617,13 +3617,15 @@ nav[role="navigation"] .harmonia-select {
   flex: 2;
 }
 #tbi #tbi-footer {
-  text-align: right;
-  font: 11px/24px Arial, sans-serif;
+  font: 11px/18px Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: #666;
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0;
+}
+#tbi #tbi-footer ul {
+  margin-top: 0;
 }
 #tbi #tbi-footer a {
   color: #999;

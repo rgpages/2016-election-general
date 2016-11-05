@@ -9,6 +9,7 @@ RG.register(function() {
 		seconds: 1800, //30 mins
 		target: 'tbi-list',
 		type: 'json',
+		cache: true,
 		callback: function($data, $options) {
 			
 			var $this = $(this);
@@ -34,12 +35,15 @@ RG.register(function() {
 									
 									var target = 'con-' + v3.contest_id;
 									var id1 = 'topcon-' + v3.contest_id;
+									console.log(v3.contest_name.length);
+									var name = ((v3.contest_name.length > 0) ? v3.contest_name : v3.contest_wrapper);
+									//var name = v3.contest_wrapper;
 									
 									template = [
 										//'<div class="story tbi-results" id="' + id1a + '">',
 										'<div id="' + id1 + '" class="story tbi-results">',
 											'<div class="tbi-flex tbi-results-row">',
-												'<h6 class="tbi-flex-2 tbi-resultes-row-header"><a href="#' + target + '">' + v3.contest_wrapper + '</a></h6>',
+												'<h6 class="tbi-flex-2 tbi-resultes-row-header"><a href="#' + target + '">' + name + '</a></h6>',
 												'<span class="tbi-flex-1 tbi-results-row-header tbi-percent">Lane</span>',
 												'<span class="tbi-flex-1 tbi-results-row-header tbi-percent">State</span>',
 											'</div> <!-- /.tbi.flex /.tbi-results-row -->',
