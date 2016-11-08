@@ -190,13 +190,15 @@
 			// Match `.poll-bar-votes` radius:
 			//border-radius: 3px;
 			// More skin:
-			background: $graye;
-			background: linear-gradient(
-				to bottom,
-				rgba($raven, .3) 0,
-				rgba($raven, .1) 100%
-			);
-			box-shadow: inset 0 0 5px rgba($raven, .35);
+			background: $grayc;
+			//background: $graye;
+			//background: linear-gradient(
+			//	to bottom,
+			//	rgba($raven, .3) 0,
+			//	rgba($raven, .1) 100%
+			//);
+			//box-shadow: inset 0 0 5px rgba($raven, .35);
+			box-shadow: inset 0 0 5px rgba($raven, .15);
 			position: relative;
 			
 			&.poll-bar-up::before,
@@ -267,7 +269,7 @@
 				font-size: 14px;
 				letter-spacing: .05em;
 				// Dark orange to match parent background:
-				color: darken($color1, 20%);
+				color: $raven;
 				// Spacing:
 				margin: 0 5px;
 				display: inline-block;
