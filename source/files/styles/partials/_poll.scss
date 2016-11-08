@@ -188,7 +188,7 @@
 		.poll-bar-wrap {
 			
 			// Match `.poll-bar-votes` radius:
-			border-radius: 3px;
+			//border-radius: 3px;
 			// More skin:
 			background: $graye;
 			background: linear-gradient(
@@ -230,16 +230,21 @@
 			// Pseudo vertical centering:
 			line-height: 30px;
 			// Match `.poll-bar-wrap` radius:
-			border-radius: 3px;
+			//border-radius: 3px;
 			// Skin:
 			background: $gray9;
-			background: linear-gradient(
-				to bottom,
-				rgba(lighten($color1, 30%), 1) 0,
-				rgba(lighten($color1, 20%), 1) 50%,
-				rgba(lighten($color1, 10%), 1) 51%,
-				rgba(lighten($color1, 20%), 1) 100%
-			);
+			// $color1
+			background: lighten($color1, 30%);
+			//background: linear-gradient(
+			//	to bottom,
+				//rgba(lighten($color1, 30%), 1) 0,
+				//rgba(lighten($color1, 20%), 1) 50%,
+				//rgba(lighten($color1, 10%), 1) 51%,
+				//rgba(lighten($color1, 20%), 1) 100%
+			//	rgba(lighten($color1, 50%), 1) 0,
+			//	rgba(lighten($color1, 30%), 1) 50%,
+			//	rgba(lighten($color1, 15%), 1) 100%
+			//);
 			box-shadow: inset 0 0 3px rgba(darken($color1, 10%), .5);
 			// Start with no width so it scales nicely on load:
 			width: 0;
