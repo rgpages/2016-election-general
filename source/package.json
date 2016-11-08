@@ -1,7 +1,7 @@
 {
   "title": "Election 2016",
   "name": "rg",
-  "description": "Latest news, recent coverage and results starting at 8 p.m. on Nov. 8",
+  "description": "Latest news, recent coverage and results",
   "version": "0.2.0",
   "homepage": "https://github.com/rgpages/election-2016-general",
   "repository": {
