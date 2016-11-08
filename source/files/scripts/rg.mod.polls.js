@@ -20,19 +20,16 @@ RG.register(function() {
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
+				var display = ((v1.web_front) ? 'block': 'none');
 				
 				if ($options.first) {
 					
 					template = [
 						'<div id="' + id1 + '" class="poll">',
-							'<div class="poll-spinner"></div>',
-							'<h6 class="poll-head' + (v1.explainer_text && ' poll-click') + '">',
-								v1.contest_wrapper,
-								(v1.contest_name && v1.contest_name),
-								(v1.explainer_text && '<i class="key-info fa fa-question-circle"></i>'),
+							'<h6 class="poll-head">',
+								(v1.contest_wrapper && v1.contest_wrapper) + ' ' + (v1.contest_name && v1.contest_name) + (((v1.explainer_text) ? (': <span class="poll-explainer">' + v1.explainer_text + '</span>') : '' )),
 							'</h6>',
-							(v1.explainer_text && '<div class="poll-info">' + v1.explainer_text + '</div>'),
-							'<div class="poll-content">',
+							'<div class="poll-content ' + v1.web_front + '" style="display:' + display + ';">',
 							'</div>',
 						'</div>'
 					].join('\n');
@@ -132,19 +129,16 @@ RG.register(function() {
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
+				var display = ((v1.web_front) ? 'block': 'none');
 				
 				if ($options.first) {
 					
 					template = [
 						'<div id="' + id1 + '" class="poll">',
-							'<div class="poll-spinner"></div>',
-							'<h6 class="poll-head' + (v1.explainer_text && ' poll-click') + '">',
-								(v1.contest_wrapper && v1.contest_wrapper),
-								(v1.contest_name && v1.contest_name),
-								(v1.explainer_text && '<i class="key-info fa fa-question-circle"></i>'),
+							'<h6 class="poll-head">',
+								(v1.contest_wrapper && v1.contest_wrapper) + ' ' + (v1.contest_name && v1.contest_name) + (((v1.explainer_text) ? (': <span class="poll-explainer">' + v1.explainer_text + '</span>') : '' )),
 							'</h6>',
-							(v1.explainer_text && '<div class="poll-info">' + v1.explainer_text + '</div>'),
-							'<div class="poll-content">',
+							'<div class="poll-content ' + v1.web_front + '" style="display:' + display + ';">',
 							'</div>',
 						'</div>'
 					].join('\n');
@@ -244,19 +238,16 @@ RG.register(function() {
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
+				var display = ((v1.web_front) ? 'block': 'none');
 				
 				if ($options.first) {
 					
 					template = [
 						'<div id="' + id1 + '" class="poll">',
-							'<div class="poll-spinner"></div>',
-							'<h6 class="poll-head' + (v1.explainer_text && ' poll-click') + '">',
-								v1.contest_wrapper,
-								(v1.contest_name && v1.contest_name),
-								(v1.explainer_text && '<i class="key-info fa fa-question-circle"></i>'),
+							'<h6 class="poll-head">',
+								(v1.contest_wrapper && v1.contest_wrapper) + ' ' + (v1.contest_name && v1.contest_name) + (((v1.explainer_text) ? (': <span class="poll-explainer">' + v1.explainer_text + '</span>') : '' )),
 							'</h6>',
-							(v1.explainer_text && '<div class="poll-info">' + v1.explainer_text + '</div>'),
-							'<div class="poll-content">',
+							'<div class="poll-content ' + v1.web_front + '" style="display:' + display + ';">',
 							'</div>',
 						'</div>'
 					].join('\n');
@@ -331,19 +322,16 @@ RG.register(function() {
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
+				var display = ((v1.web_front) ? 'block': 'none');
 				
 				if ($options.first) {
 					
 					template = [
 						'<div id="' + id1 + '" class="poll">',
-							'<div class="poll-spinner"></div>',
-							'<h6 class="poll-head' + (v1.explainer_text && ' poll-click') + '">',
-								v1.contest_wrapper,
-								(v1.contest_name && v1.contest_name),
-								(v1.explainer_text && '<i class="key-info fa fa-question-circle"></i>'),
+							'<h6 class="poll-head">',
+								(v1.contest_wrapper && v1.contest_wrapper) + ' ' + (v1.contest_name && v1.contest_name) + (((v1.explainer_text) ? (': <span class="poll-explainer">' + v1.explainer_text + '</span>') : '' )),
 							'</h6>',
-							(v1.explainer_text && '<div class="poll-info">' + v1.explainer_text + '</div>'),
-							'<div class="poll-content">',
+							'<div class="poll-content ' + v1.web_front + '" style="display:' + display + ';">',
 							'</div>',
 						'</div>'
 					].join('\n');
@@ -418,19 +406,16 @@ RG.register(function() {
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
+				var display = ((v1.web_front) ? 'block': 'none');
 				
 				if ($options.first) {
 					
 					template = [
 						'<div id="' + id1 + '" class="poll">',
-							'<div class="poll-spinner"></div>',
-							'<h6 class="poll-head' + (v1.explainer_text && ' poll-click') + '">',
-								v1.contest_wrapper,
-								(v1.contest_name && v1.contest_name),
-								(v1.explainer_text && '<i class="key-info fa fa-question-circle"></i>'),
+							'<h6 class="poll-head">',
+								(v1.contest_wrapper && v1.contest_wrapper) + ' ' + (v1.contest_name && v1.contest_name) + (((v1.explainer_text) ? (': <span class="poll-explainer">' + v1.explainer_text + '</span>') : '' )),
 							'</h6>',
-							(v1.explainer_text && '<div class="poll-info">' + v1.explainer_text + '</div>'),
-							'<div class="poll-content">',
+							'<div class="poll-content ' + v1.web_front + '" style="display:' + display + ';">',
 							'</div>',
 						'</div>'
 					].join('\n');
@@ -496,27 +481,27 @@ RG.register(function() {
 		//api: 'http://projects.registerguard.com/ballot/json/laneme/',
 		type: 'json',
 		api: './results/laneme.json',
+		cache: false,
 		callback: function($data, $options) {
 			
 			var $this = $(this);
 			var template;
 			
+			console.log($data);
+			
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
+				var display = ((v1.web_front) ? 'block': 'none');
 				
 				if ($options.first) {
 					
 					template = [
 						'<div id="' + id1 + '" class="poll">',
-							'<div class="poll-spinner"></div>',
-							'<h6 class="poll-head' + (v1.explainer_text && ' poll-click') + '">',
-								v1.contest_wrapper,
-								(v1.contest_name && v1.contest_name),
-								(v1.explainer_text && '<i class="key-info fa fa-question-circle"></i>'),
+							'<h6 class="poll-head">',
+								(v1.contest_wrapper && v1.contest_wrapper) + ' ' + (v1.contest_name && v1.contest_name) + (((v1.explainer_text) ? (': <span class="poll-explainer">' + v1.explainer_text + '</span>') : '' )),
 							'</h6>',
-							(v1.explainer_text && '<div class="poll-info">' + v1.explainer_text + '</div>'),
-							'<div class="poll-content">',
+							'<div class="poll-content ' + v1.web_front + '" style="display:' + display + ';">',
 							'</div>',
 						'</div>'
 					].join('\n');

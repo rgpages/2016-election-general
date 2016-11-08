@@ -51,7 +51,7 @@
 		
 		[class*="pure-u"] { padding: 10px 0; }
 		
-		@media all and (min-width: 960px) {
+		@media all and (min-width: 1280px) {
 			
 			[class*="pure-u"] { padding: 0 20px; }
 			
@@ -65,7 +65,7 @@
 }
 
 #tbi{ order: -1; }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
 	#tbi { order: 9999; }
 }
 
@@ -97,7 +97,7 @@
 			margin-top: 15px;
 		}
 		
-		@media all and (min-width: 960px) {
+		@media all and (min-width: 1280px) {
 			
 			// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
 			-webkit-transform-style: preserve-3d;
@@ -132,7 +132,7 @@
 			text-align: center;
 			margin: 0;
 			
-			@media all and (min-width: 960px) {
+			@media all and (min-width: 1280px) {
 				
 				text-align: left;
 				margin-left: 165px; // Left `margin` = `width` of `#flag` + some extra for margin.
@@ -166,7 +166,7 @@
 			.char12 { margin-left: 0; }
 			.char13 { margin-left: 2px; }
 			
-			@media all and (min-width: 960px) {
+			@media all and (min-width: 1280px) {
 				
 				font-size: 90px;
 				line-height: 75px;
@@ -204,7 +204,7 @@
 			   -moz-font-feature-settings: "kern=1";
 			        font-feature-settings: "kern";
 			
-			@media all and (min-width: 960px) {
+			@media all and (min-width: 1280px) {
 				
 				font-size: 30px;
 				line-height: 30px;

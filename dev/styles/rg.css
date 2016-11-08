@@ -2807,7 +2807,7 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
 .pure-g.pure-pad [class*="pure-u"] {
   padding: 10px 0;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   .pure-g.pure-pad [class*="pure-u"] {
     padding: 0 20px;
   }
@@ -2823,7 +2823,7 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   order: -1;
 }
 
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #tbi {
     order: 9999;
   }
@@ -2844,7 +2844,7 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   text-align: center;
   margin-top: 15px;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #header #masthead > div {
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -2873,7 +2873,7 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   text-align: center;
   margin: 0;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #header #masthead > div h2,
   #header #masthead > div h3 {
     text-align: left;
@@ -2929,7 +2929,7 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
 #header #masthead > div h2 .char13 {
   margin-left: 2px;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #header #masthead > div h2 {
     font-size: 90px;
     line-height: 75px;
@@ -2987,7 +2987,7 @@ a.social-tumblr, a.social-tumblr:visited, .no-touch a.social-tumblr:visited:hove
   -moz-font-feature-settings: "kern=1";
   font-feature-settings: "kern";
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #header #masthead > div h3 {
     font-size: 30px;
     line-height: 30px;
@@ -3079,7 +3079,7 @@ nav[role="navigation"] ul a, nav[role="navigation"] ul a:visited {
   display: none;
   visibility: hidden;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   .js nav[role="navigation"] ul {
     display: block;
     visibility: visible;
@@ -3093,7 +3093,7 @@ nav[role="navigation"] .harmonia-select {
   display: block;
   padding: 0;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   nav[role="navigation"] {
     background: #222;
     background-image: linear-gradient(to bottom, #222 0, #333 100%);
@@ -3171,7 +3171,7 @@ nav[role="navigation"] .harmonia-select {
 #flag a:active, #flag a:focus {
   outline: none;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #flag {
     width: 150px;
     height: 111px;
@@ -3292,8 +3292,9 @@ nav[role="navigation"] .harmonia-select {
   display: none;
 }
 .poll .poll-head {
+  cursor: pointer;
   font-size: 14px;
-  line-height: 25px;
+  line-height: 18px;
   letter-spacing: .05em;
   text-transform: uppercase;
   margin: 0;
@@ -3305,6 +3306,11 @@ nav[role="navigation"] .harmonia-select {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+.poll .poll-head .poll-explainer {
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: .01em;
 }
 .poll .poll-head.poll-click {
   cursor: pointer;
@@ -3758,7 +3764,7 @@ nav[role="navigation"] .harmonia-select {
 #slideshow a#parallax > span > span:last-child span {
   display: inline;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 1280px) {
   #slideshow a#parallax > span {
     font-size: 18px;
     line-height: 44px;

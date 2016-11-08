@@ -79,7 +79,7 @@ nav[role="navigation"] {
 			display: none;
 			visibility: hidden;
 			
-			@media all and (min-width: 960px) {
+			@media all and (min-width: 1280px) {
 				
 				& {
 					display: block;
@@ -101,7 +101,7 @@ nav[role="navigation"] {
 		padding: 0;
 	}
 	
-	@media all and (min-width: 960px) {
+	@media all and (min-width: 1280px) {
 		
 		background: $gray2;
 		background-image: linear-gradient(to bottom, $gray2 0, $gray3 100%);
