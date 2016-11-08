@@ -1,0 +1,31 @@
+#jump{
+	
+	padding: 10px 0;
+	
+	.jump-wrap{
+	
+		position: relative;
+		border-width: 1px 0;
+		border-style: solid;
+		border-color: #ddd;
+		margin: 0 0 -1px;
+		padding: 10px 0;
+	
+		h4 {
+			
+			padding: inherit;
+			margin: inherit;
+			
+			@media screen and (max-width: 959px){
+				
+				&::before{
+					content: "- ";
+				}
+				
+			}
+			
+		}
+	
+	}
+	
+}

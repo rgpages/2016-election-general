@@ -63,3 +63,7 @@
 }
 
 .glow { box-shadow: 0 0 20px $chili; }
+
+@media screen and (max-width: 1279px){
+	#twitter{ display: none; }
+}

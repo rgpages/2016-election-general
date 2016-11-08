@@ -487,8 +487,6 @@ RG.register(function() {
 			var $this = $(this);
 			var template;
 			
-			console.log($data);
-			
 			$.each($data, function(i1, v1) {
 				
 				var id1 = 'con-' + v1.contest_id;
