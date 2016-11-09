@@ -5,7 +5,8 @@ RG.register(function() {
 	'use strict';
 	
 	$.pollster.defaults.loader = 'poll-spinner';
-	$.pollster.defaults.seconds = 300; // 5 mins.
+	//$.pollster.defaults.seconds = 300; // 5 mins.
+	$.pollster.defaults.seconds = 120;
 	
 	$.pollster({
 		target: 'state-races-results',

@@ -10,7 +10,8 @@ RG.register(function() {
 		//api: 'http://192.9.201.9:8000/ballot/json/ap_elex_stories/7/', 
 		api: 'http://projects.registerguard.com/ballot/json/ap_elex_stories/4/',
 		//api: 'http://internet02.guardnet.com:8000/ballot/json/ap_elex_stories/3/',
-		seconds: 1800, // 30 mins.
+		//seconds: 1800, // 30 mins.
+		seconds: 300, // 5 mins.
 		//seconds: 2,
 		//cache: false,
 		//type: 'jsonp',
