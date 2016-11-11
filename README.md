@@ -8,6 +8,9 @@ Taken from [election-2014-general](https://github.com/rgpages/election-2014-gene
 
 … and other development notes, can be found [here](source/README.md).
 
+## Random notes
+* The earlier this gets up with endorsements, the better. Then you can share and get people familiar with vote.registerguard.com long before election night. Maps of drop off locations would also be helpful.
+
 ---
 
 Copyright © [The Register-Guard](http://registerguard.com) 2016. All rights reserved.
